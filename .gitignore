@@ -1,0 +1,9 @@
+bin/
+.settings/
+.project
+.gradle/
+*.jar
+build/
+*.class
+.gitignore~
+target/

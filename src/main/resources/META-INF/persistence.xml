@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="OpenHRPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <properties>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.password" value=""/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/freehrms"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.ejb.event.post-insert"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+		<property name="hibernate.ejb.event.post-update"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+		<property name="hibernate.ejb.event.post-delete"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+		<property name="hibernate.ejb.event.pre-collection-update"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+		<property name="hibernate.ejb.event.pre-collection-remove"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+		<property name="hibernate.ejb.event.pre-collection-recreate"
+			value="org.hibernate.envers.event.AuditEventListener"/>
+    </properties>
+  </persistence-unit>
+</persistence>

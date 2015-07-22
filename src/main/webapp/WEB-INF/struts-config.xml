@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="com.openhr.user.form.LoginForm" />
+		<form-bean name="usersForm" type="com.openhr.user.form.UserForm" />
+		<form-bean name="roleForm" type="com.openhr.role.form.RoleForm" />
+		<form-bean name="logoutForm" type="com.openhr.user.form.LogoutForm" />
+		<form-bean name="positionForm" type="com.openhr.position.form.PositionForm" />
+		<form-bean name="employeeForm" type="com.openhr.employee.form.EmployeeForm" />
+		<form-bean name="employeePhotoForm" type="com.openhr.employee.form.EmployeePhotoForm" />
+		<form-bean name="leaveForm" type="com.openhr.leave.form.LeaveForm" />
+		<form-bean name="mleaveForm" type="com.openhr.leave.form.MLeaveForm" />
+		<form-bean name="leaveTypeForm" type="com.openhr.leavetype.form.LeaveTypeForm" />
+		<form-bean name="benefitForm" type="com.openhr.benefit.form.BenefitForm" />
+		<form-bean name="benefitTypeForm"
+			type="com.openhr.benefittype.form.BenefitTypeForm" />
+			
+			<form-bean name="deductionTypeForm"
+			type="com.openhr.deductiontype.form.DeductionTypeForm" />
+			
+		<form-bean name="payGroupForm" type="com.openhr.paygroup.form.PayGroupForm" />
+		<form-bean name="empPayGroupForm"
+			type="com.openhr.employeepaygroup.form.EmployeePayGroupForm" />
+			
+		<form-bean name="settingsForm" type="com.openhr.settings.form.SettingsForm" />
+		<form-bean name="photoCropForm" type="com.openhr.employee.form.PhotoCropForm" />
+	</form-beans>
+
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<global-forwards>
+		<!-- forward name="login.form" path="index"/> -->
+	</global-forwards>
+
+	<action-mappings>
+		<!--Admin Site Links -->
+		<action path="/Welcome" forward="/do/LogoutAction" />
+		<action path="/Position" forward="position.form" />
+		<action path="/Leave" forward="leave.form" />
+		<action path="/ApproveLeave" forward="leaveapp.form" />
+		<action path="/LeaveType" forward="leavetype.form" />
+		<action path="/Employee" forward="employee.form" />
+		<action path="/Benefit" forward="benefit.form" />
+		<action path="/BenefitType" forward="benefittype.form" />
+		<action path="/PayGroup" forward="paygroup.form" />
+		<action path="/EmpPayGroup" forward="emppaygroup.form" />
+		<action path="/User" forward="user.form" />
+		<action path="/Role" forward="role.form" />
+		<action path="/Settings" forward="settings.form" />
+		<action path="/HRReport" forward="report.form" />
+		<action path="/AdminReport" forward="admin.report.form" /> 
+		<action path="/AccountingReport" forward="acc.report.form" />
+		<action path="/Payroll" forward="financeHome" />
+		<action path="/Deduction" forward="deduction.form" />
+		<action path="/DeductionType" forward="deductiontype.form" />
+		<!--Member Site Links -->
+		<action path="/MLeave" forward="mleave.form" /> 
+		<action path="/MOvertime" forward="movertime.form" />
+		<action path="/MLoan" forward="mloan.form" />
+		<action path="/MHealth" forward="mhealth.form" />
+		<action path="/MNotices" forward="mnotices.form" />
+		<action path="/MAccount" forward="maccount.form" />
+		
+		
+		
+		<action path="/AdminHome" forward="adminHome"/>
+		<action path="/HRHome" forward="hrHome"/>
+		<action path="/FinanceHome" forward="financeHome"/>
+		<action path="/EmployeeHome" forward="memberHome"/>
+		
+		<!-- start of Login actions -->
+		<action path="/LoginAction" name="loginForm"
+			type="com.openhr.user.action.LoginAction" input="/login/login.jsp">
+			<forward name="admin" path="/do/AdminHome" />
+			<forward name="hr" path="/do/HRHome" />
+			<forward name="member" path="/do/EmployeeHome" />
+			<forward name="finance" path="/do/FinanceHome" />
+			<forward name="login" path="index" />
+		</action>
+		<!-- end of Login actions -->
+
+		<!-- start of Position actions -->
+		<action path="/PositionAction" name="positionForm"
+			type="com.openhr.position.action.PositionAction" input="position.form">
+			<forward name="continue" path="position.form" />
+		</action>
+
+		<action path="/ReadPositionAction" name="positionForm"
+			type="com.openhr.position.action.ReadPositionAction" input="position.form">
+			<forward name="continue" path="position.form" />
+		</action>
+
+		<action path="/UpdatePositionAction" name="positionForm"
+			type="com.openhr.position.action.UpdatePositionAction" input="position.form">
+			<forward name="continue" path="position.form" />
+		</action>
+
+		<action path="/DeletePositionAction" name="positionForm"
+			type="com.openhr.position.action.DeletePositionAction" input="position.form">
+			<forward name="continue" path="position.form" />
+		</action>
+
+		<!--end of Position actions -->
+
+
+
+
+
+
+
+
+
+
+
+		<!-- start of Employee actions -->
+		<action path="/EmployeePhotoAction" name="employeePhotoForm"
+			type="com.openhr.employee.action.EmployeePhotoAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+
+
+		<action path="/EmployeeAction" name="employeeForm"
+			type="com.openhr.employee.action.EmployeeAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+
+		<action path="/ReadEmployeeAction" name="employeeForm"
+			type="com.openhr.employee.action.ReadEmployeeAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+
+		<action path="/UpdateEmployeeAction" name="employeeForm"
+			type="com.openhr.employee.action.UpdateEmployeeAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+
+		<action path="/DeleteEmployeeAction" name="employeeForm"
+			type="com.openhr.employee.action.DeleteEmployeeAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+
+		<action path="/PhotoCropAction" name="photoCropForm"
+			type="com.openhr.employee.action.PhotoCropAction" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+		<!-- end of Employee actions -->
+
+
+		<!-- start of User actions -->
+		<action path="/UserAction" name="usersForm"
+			type="com.openhr.user.action.UserAction" input="user.form">
+			<forward name="continue" path="user.form" />
+		</action>
+
+		<action path="/ReadUserAction" name="usersForm"
+			type="com.openhr.user.action.ReadUserAction" input="user.form">
+			<forward name="continue" path="user.form" />
+		</action>
+
+		<action path="/UpdateUserAction" name="userForm"
+			type="com.openhr.user.action.UpdateUserAction" input="user.form">
+			<forward name="continue" path="user.form" />
+		</action>
+
+		<action path="/DeleteUserAction" name="userForm"
+			type="com.openhr.user.action.DeleteUserAction" input="user.form">
+			<forward name="continue" path="user.form" />
+		</action>
+		<!-- end of User actions -->
+
+
+
+		<!-- start of Role actions -->
+		<action path="/RoleAction" name="roleForm"
+			type="com.openhr.role.action.RoleAction" input="role.form">
+			<forward name="continue" path="role.form" />
+		</action>
+
+		<action path="/ReadRoleAction" name="roleForm"
+			type="com.openhr.role.action.ReadRoleAction" input="role.form">
+			<forward name="continue" path="role.form" />
+		</action>
+
+		<action path="/UpdateRoleAction" name="roleForm"
+			type="com.openhr.role.action.UpdateRoleAction" input="role.form">
+			<forward name="continue" path="role.form" />
+		</action>
+
+		<action path="/DeleteRoleAction" name="roleForm"
+			type="com.openhr.role.action.DeleteRoleAction" input="role.form">
+			<forward name="continue" path="role.form" />
+		</action>
+		<!-- end of Role actions -->
+
+
+		<!-- start of LeaveType actions -->
+		<action path="/LeaveTypeAction" name="leaveTypeForm"
+			type="com.openhr.leavetype.action.LeaveTypeAction" input="leavetype.form">
+			<forward name="continue" path="leavetype.form" />
+		</action>
+
+		<action path="/ReadLeaveTypeAction" name="leaveTypeForm"
+			type="com.openhr.leavetype.action.ReadLeaveTypeAction" input="leavetype.form">
+			<forward name="continue" path="leavetype.form" />
+		</action>
+
+		<action path="/UpdateLeaveTypeAction" name="leaveTypeForm"
+			type="com.openhr.leavetype.action.UpdateLeaveTypeAction" input="leavetype.form">
+			<forward name="continue" path="leavetype.form" />
+		</action>
+
+		<action path="/DeleteLeaveTypeAction" name="leaveTypeForm"
+			type="com.openhr.leavetype.action.DeleteLeaveTypeAction" input="leavetype.form">
+			<forward name="continue" path="leavetype.form" />
+		</action>
+		<!-- end of LeaveType actions -->
+
+
+		<!-- start of Leave actions -->
+		<action path="/LeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.LeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+		
+		
+		<action path="/ApproveLeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.ApproveLeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+
+		<action path="/ReadLeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.ReadLeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+		
+		
+		<action path="/ReadRequestedLeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.ReadRequestedLeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+		
+		
+		
+
+		<action path="/UpdateLeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.UpdateLeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+
+		<action path="/DeleteLeaveAction" name="leaveForm"
+			type="com.openhr.leave.action.DeleteLeaveAction" input="leave.form">
+			<forward name="continue" path="leave.form" />
+		</action>
+		
+		
+		
+		
+		<!-- end of leave actions -->
+
+
+
+
+		<!-- start of BenefitType actions -->
+		<action path="/BenefitTypeAction" name="benefitTypeForm"
+			type="com.openhr.benefittype.action.BenefitTypeAction" input="benefittype.form">
+			<forward name="continue" path="benefittype.form" />
+		</action>
+
+		<action path="/ReadBenefitTypeAction" name="benefitTypeForm"
+			type="com.openhr.benefittype.action.ReadBenefitTypeAction" input="benefittype.form">
+			<forward name="continue" path="benefittype.form" />
+		</action>
+
+		<action path="/UpdateBenefitTypeAction" name="benefitTypeForm"
+			type="com.openhr.benefittype.action.UpdateBenefitTypeAction" input="benefittype.form">
+			<forward name="continue" path="benefittype.form" />
+		</action>
+
+		<action path="/DeleteBenefitTypeAction" name="benefitTypeForm"
+			type="com.openhr.benefittype.action.DeleteBenefitTypeAction" input="benefittype.form">
+			<forward name="continue" path="benefittype.form" />
+		</action>
+		<!-- end of BenefitType actions -->
+
+
+
+
+		<!-- start of DeductionType actions -->
+		<action path="/DeductionTypeAction" name="deductionTypeForm"
+			type="com.openhr.deductiontype.action.DeductionTypeAction" input="deductiontype.form">
+			<forward name="continue" path="deductiontype.form" />
+		</action>
+
+		<action path="/ReadDeductionTypeAction" name="deductionTypeForm"
+			type="com.openhr.deductiontype.action.ReadDeductionTypeAction" input="deductiontype.form">
+			<forward name="continue" path="deductiontype.form" />
+		</action>
+
+		<action path="/UpdateDeductionTypeAction" name="deductionTypeForm"
+			type="com.openhr.deductiontype.action.UpdateDeductionTypeAction" input="deductiontype.form">
+			<forward name="continue" path="deductiontype.form" />
+		</action>
+
+		<action path="/DeleteDeductionTypeAction" name="deductionTypeForm"
+			type="com.openhr.deductiontype.action.DeleteDeductionTypeAction" input="deductiontype.form">
+			<forward name="continue" path="deductiontype.form" />
+		</action>
+		<!-- end of DeductionType actions -->
+		
+		
+		
+		
+
+
+		<!-- start of Benefit actions -->
+		<action path="/BenefitAction" name="benefitForm"
+			type="com.openhr.benefit.action.BenefitAction" input="benefit.form">
+			<forward name="continue" path="benefit.form" />
+		</action>
+
+		<action path="/ReadBenefitAction" name="benefitForm"
+			type="com.openhr.benefit.action.ReadBenefitAction" input="benefit.form">
+			<forward name="continue" path="benefit.form" />
+		</action>
+
+		<action path="/UpdateBenefitAction" name="benefitForm"
+			type="com.openhr.benefit.action.UpdateBenefitAction" input="benefit.form">
+			<forward name="continue" path="benefit.form" />
+		</action>
+
+		<action path="/DeleteBenefitAction" name="benefitForm"
+			type="com.openhr.benefit.action.DeleteBenefitAction" input="benefit.form">
+			<forward name="continue" path="benefit.form" />
+		</action>
+		<!-- end of Benefit actions -->
+
+
+
+		<!-- pay group actions -->
+		<action path="/PayGroupAction" name="payGroupForm"
+			type="com.openhr.paygroup.action.PayGroupAction" input="paygroup.form">
+			<forward name="continue" path="paygroup.form" />
+		</action>
+		
+		<action path="/UpdatePayGroupAction" name="payGroupForm"
+			type="com.openhr.paygroup.action.UpdatePayGroupAction" input="paygroup.form">
+			<forward name="continue" path="paygroup.form" />
+		</action>
+		
+		
+		<action path="/ReadPayGroupAction" name="payGroupForm"
+			type="com.openhr.paygroup.action.ReadPayGroupAction" input="paygroup.form">
+			<forward name="continue" path="paygroup.form" />
+		</action>
+		
+		<action path="/DeletePayGroupAction" name="payGroupForm"
+			type="com.openhr.paygroup.action.DeletePayGroupAction" input="paygroup.form">
+			<forward name="continue" path="paygroup.form" />
+		</action>
+		<!-- end pay group actions -->
+
+
+		<!-- employee's pay group actions -->
+		<action path="/EmpPayGroupAction" name="empPayGroupForm"
+			type="com.openhr.employeepaygroup.action.EmployeePayGroupAction" input="emppaygroup.form">
+			<forward name="continue" path="emppaygroup.form" />
+		</action>
+		
+		<action path="/UpdateEmpPayGroupAction" name="empPayGroupForm"
+			type="com.openhr.employeepaygroup.action.UpdateEmployeePayGroupAction" input="emppaygroup.form">
+			<forward name="continue" path="emppaygroup.form" />
+		</action>
+		
+		
+		<action path="/ReadEmpPayGroupAction" name="empPayGroupForm"
+			type="com.openhr.employeepaygroup.action.ReadEmployeePayGroupAction" input="emppaygroup.form">
+			<forward name="continue" path="emppaygroup.form" />
+		</action>
+		
+		<action path="/DeleteEmpPayGroupAction" name="empPayGroupForm"
+			type="com.openhr.employeepaygroup.action.DeleteEmployeePayGroupAction" input="emppaygroup.form">
+			<forward name="continue" path="emppaygroup.form" />
+		</action>
+                
+                <action path="/GenerateHRReport" name="employee.form"
+			type="com.openhr.report.action.GenerateHRReport" input="employee.form">
+			<forward name="continue" path="employee.form" />
+		</action>
+		<!-- end employee's pay group actions -->
+		
+		
+		
+		
+
+		<!-- start of Settings actions -->
+		<action path="/SettingsAction" name="settingsForm"
+			type="com.openhr.settings.action.SettingsAction">
+			<forward name="continue" path="settings.form" />
+		</action>
+		<!-- start of Settings actions -->
+		
+		<!-- start of Settings actions -->
+		<action path="/LeaveApplicationAction" name="settingsForm"
+			type="com.openhr.mleave.action.LeaveApplicationAction">
+			<forward name="continue" path="settings.form" />
+		</action>
+		<!-- start of Settings actions -->
+
+
+
+
+		<!-- start of Logout actions -->
+		<action path="/LogoutAction" name="logoutForm"
+			type="com.openhr.user.action.LogoutAction">
+			<forward name="continue" path="index" />
+		</action>
+		<!-- start of Logout actions -->
+
+
+
+
+		<action path="/GeneratePayroll" 
+			type="com.openhr.Report" 
+			scope="request">			
+		</action>
+		
+		<action path="/ChangeLanguage" 
+			type="com.openhr.ChangeLanguageAction" 
+			scope="request"
+			parameter="method"
+			validate="false">	
+			<forward name="continue" path="index" />		
+		</action>
+
+
+
+
+
+	</action-mappings>
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<message-resources parameter="com.openhr.lang.Lang" /> 
+
+	<!-- ========================= Tiles plugin =============================== -->
+	<!-- This plugin initialize Tiles definition factory. This later can takes 
+		some parameters explained here after. The plugin first read parameters from 
+		web.xml, then overload them with parameters defined here. All parameters are 
+		optional. The plugin should be declared in each struts-config file. - definitions-config: 
+		(optional) Specify configuration file names. There can be several comma separated 
+		file names (default: ?? ) - moduleAware: (optional - struts1.1) Specify if 
+		the Tiles definition factory is module aware. If true (default), there will 
+		be one factory for each Struts module. If false, there will be one common 
+		factory for all module. In this later case, it is still needed to declare 
+		one plugin per module. The factory will be initialized with parameters found 
+		in the first initialized plugin (generally the one associated with the default 
+		module). true : One factory per module. (default) false : one single shared 
+		factory for all modules - definitions-parser-validate: (optional) Specify 
+		if xml parser should validate the Tiles configuration file. true : validate. 
+		DTD should be specified in file header (default) false : no validation Paths 
+		found in Tiles definitions are relative to the main context. -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<!-- ========================= Validator plugin ================================= -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+	
+
+</struts-config>

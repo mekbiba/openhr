@@ -1,0 +1,135 @@
+#header {
+	height: 100px;
+	display: block;
+}
+#footer {
+	height: 100px;
+	background-color: #069;
+}
+
+
+#header #logo {
+	width: 290px;
+	float: left;
+}
+
+#header #header-sub {
+	float: right;
+	display: block;
+	height: 30px;
+	width: 734px;
+	padding-top: 70px;
+}
+#header #header-sub ul {
+	list-style-type: none;
+	line-height: 30px;
+}
+#header #header-sub ul li {
+	position: relative;
+	float: left;
+}
+#header #header-sub ul li #top-menu {
+	width: 460px;
+	background-color: #069;
+}
+#header #header-sub ul li #spacer {
+	width: 50px;
+}
+#header #header-sub ul li #user-info {
+	width: 200px;
+	background-color: #069;
+	display: block;
+	height: 30px;
+}
+#header #header-sub ul li #user-info p {
+	text-align: right;
+	padding: 0px;
+	margin: 0px;
+	height: 30px;
+	line-height: 30px;
+	color: #FFF;
+	display: inline;
+}
+#header-sub ul li #user-info p a {
+	line-height: 30px;
+	height: 30px;
+}
+
+#header #header-sub ul li #top-menu a:hover {
+	cursor:pointer;
+	text-decoration: underline;
+}
+#header #header-sub ul li #top-menu a {
+	line-height: 30px;
+	display: inline;
+	padding-right: 5px;
+	padding-left: 5px;
+	text-align: center;
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+	height: 30px;
+	width: 120px;
+}
+#content {
+	margin-left: 4px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #FFF;
+}
+
+#bread-crumb {
+	height: 30px;
+	display: block;
+	background-image: url(../css/images/bread-crumb-bg.png);
+	background-repeat: repeat-x;
+	text-align: right;
+}
+#operation-bar {
+	background-color: #069;
+	line-height: 30px;
+	text-align: right;
+}
+
+ #bread-crumb p {
+	line-height: 30px;
+	color: #FFF;
+}
+#content #menu-gadget:hover {
+	background-image: url(../css/images/menu-widget-bg.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#content #menu-gadget {
+	height: 200px;
+	width: 245px;
+	position: relative;
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+#content #menu-gadget a img {
+	height: 80px;
+	width: 90px;
+	padding-top: 65px;
+	vertical-align: middle;
+	display: block;
+	padding-left: 80px;
+}
+#content #menu-gadget a:hover p{
+	cursor:pointer; 
+}
+
+content #menu-gadget a{
+	text-decoration : none;
+	border:none;
+}
+#content #menu-gadget a p {
+	width: 190px;
+	margin-left: 25px;
+	display: block;
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	padding-top: 10px;
+}

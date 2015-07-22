@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+div.photo-frame img{
+	border:10px solid #D6D6D6;
+	background-color:#fff;
+	width:167px;
+	display:block;
+}
+
