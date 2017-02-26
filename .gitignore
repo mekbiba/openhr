@@ -3,7 +3,12 @@ bin/
 .project
 .gradle/
 *.jar
-build/
+build/*
 *.class
 .gitignore~
-target/
+target/*
+.nb-gradle/*
+.setting
+.classpath
+.gradle
+.idea/*

@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import com.google.gson.Gson;
 import com.openhr.data.EmployeePayroll;
 
 /**
@@ -29,4 +30,8 @@ public class Payroll {
         return employeePayroll;
 
     }
+    
+    public static void main(String[] args) {
+		System.out.println(new Gson().toJson(generatePayroll()));
+	}
 }

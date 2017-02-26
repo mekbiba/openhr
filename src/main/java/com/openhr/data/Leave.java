@@ -28,9 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Leave.findAll", query = "SELECT l FROM Leave l"),
-    @NamedQuery(name = "Leave.findById", query = "SELECT l FROM Leave l WHERE l.id = ?"),
-    @NamedQuery(name = "Leave.findByUnuseddays", query = "SELECT l FROM Leave l WHERE l.unuseddays = ?"),
-    @NamedQuery(name = "Leave.findByYear", query = "SELECT l FROM Leave l WHERE l.year = ?")})
+    @NamedQuery(name = "Leave.findById", query = "SELECT l FROM Leave l WHERE l.id = :id"),
+    @NamedQuery(name = "Leave.findByUnuseddays", query = "SELECT l FROM Leave l WHERE l.unuseddays = :unuseddays"),
+    @NamedQuery(name = "Leave.findByYear", query = "SELECT l FROM Leave l WHERE l.year = :year")})
 public class Leave implements Serializable {
 
     private static final long serialVersionUID = 1L;

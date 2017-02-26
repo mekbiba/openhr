@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "EmpBenefitView.findAll", query = "SELECT e FROM EmpBenefitView e"),
-    @NamedQuery(name = "EmpBenefitView.findAvailablBenefitType", query = "SELECT distinct benefitType FROM EmpBenefitView e"),
+    @NamedQuery(name = "EmpBenefitView.findAvailablBenefitType", query = "SELECT distinct e.benefitType FROM EmpBenefitView e"),
     @NamedQuery(name = "EmpBenefitView.findByEmpId", query = "SELECT e FROM EmpBenefitView e WHERE e.empId = :empId"),
     @NamedQuery(name = "EmpBenefitView.findBySalary", query = "SELECT e FROM EmpBenefitView e WHERE e.salary = :salary"),
     @NamedQuery(name = "EmpBenefitView.findByBenefitAmnt", query = "SELECT e FROM EmpBenefitView e WHERE e.benefitAmnt = :benefitAmnt"),

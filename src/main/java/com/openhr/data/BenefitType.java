@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "BenefitType.findAll", query = "SELECT b FROM BenefitType b"),
-    @NamedQuery(name = "BenefitType.findById", query = "SELECT b FROM BenefitType b WHERE b.id = ?"),
-    @NamedQuery(name = "BenefitType.findByName", query = "SELECT b FROM BenefitType b WHERE b.name = ?"),
-    @NamedQuery(name = "BenefitType.findByCap", query = "SELECT b FROM BenefitType b WHERE b.cap = ?")})
+    @NamedQuery(name = "BenefitType.findById", query = "SELECT b FROM BenefitType b WHERE b.id = :id"),
+    @NamedQuery(name = "BenefitType.findByName", query = "SELECT b FROM BenefitType b WHERE b.name = :name"),
+    @NamedQuery(name = "BenefitType.findByCap", query = "SELECT b FROM BenefitType b WHERE b.cap = :cap")})
 public class BenefitType implements Serializable {
 
     private static final long serialVersionUID = 1L;

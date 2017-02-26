@@ -23,8 +23,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "position", catalog = "freehrms", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Position.findAll", query = "FROM Position p"),
-    @NamedQuery(name = "Position.findById", query = "FROM Position p WHERE id = ?"),
+    @NamedQuery(name = "Position.findAll", query = "SELECT p FROM Position p"),
+    @NamedQuery(name = "Position.findById", query = "SELECT p FROM Position p WHERE p.id = :id"),
     @NamedQuery(name = "Position.findByName", query = "SELECT p FROM Position p WHERE p.name = :name"),
     @NamedQuery(name = "Position.findBySalary", query = "SELECT p FROM Position p WHERE p.salary = :salary"),
     @NamedQuery(name = "Position.findByRaisePerYear", query = "SELECT p FROM Position p WHERE p.raisePerYear = :raisePerYear")})

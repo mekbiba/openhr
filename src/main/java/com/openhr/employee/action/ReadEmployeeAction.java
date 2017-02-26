@@ -42,9 +42,9 @@ public class ReadEmployeeAction extends Action {
             List<Employee> employees = findAll();
             //start=System.currentTimeMillis();
             for (Employee emp : employees) {
-                /*System.out.println("Path to look photos for: "
+                System.out.println("Path to look photos for: "
                  + getServlet().getServletContext().getRealPath(
-                 emp.getPhoto()));*/
+                 emp.getPhoto()));
                 File photo = new File(getServlet().getServletContext()
                         .getRealPath(emp.getPhoto()));
                 if (!photo.exists()) {

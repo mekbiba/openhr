@@ -24,9 +24,9 @@ import javax.persistence.Table;
 @Table(name = "report", catalog = "freehrms", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Report.findAll", query = "SELECT r FROM Report r"),
-    @NamedQuery(name = "Report.findById", query = "SELECT r FROM Report r WHERE r.id = ?"),
-    @NamedQuery(name = "Report.findByName", query = "SELECT r FROM Report r WHERE r.name = ?"),
-    @NamedQuery(name = "Report.findByTemplate", query = "SELECT r FROM Report r WHERE r.template = ?")})
+    @NamedQuery(name = "Report.findById", query = "SELECT r FROM Report r WHERE r.id = :id"),
+    @NamedQuery(name = "Report.findByName", query = "SELECT r FROM Report r WHERE r.name = :name"),
+    @NamedQuery(name = "Report.findByTemplate", query = "SELECT r FROM Report r WHERE r.template = :template")})
 public class Report implements Serializable {
 
     private static final long serialVersionUID = 1L;

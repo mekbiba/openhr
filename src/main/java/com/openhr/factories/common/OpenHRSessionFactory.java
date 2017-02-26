@@ -5,7 +5,7 @@
 package com.openhr.factories.common;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 
 import com.openhr.data.Benefit;
 import com.openhr.data.BenefitType;
@@ -33,7 +33,7 @@ public class OpenHRSessionFactory {
     private static SessionFactory sessionFactory = null;
 
     private OpenHRSessionFactory() {
-        AnnotationConfiguration config = new AnnotationConfiguration();
+        Configuration config = new Configuration();
         config.configure();
         config.addAnnotatedClass(Benefit.class);
         config.addAnnotatedClass(BenefitType.class);
