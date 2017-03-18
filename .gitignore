@@ -12,3 +12,4 @@ target/*
 .classpath
 .gradle
 .idea/*
+/build/

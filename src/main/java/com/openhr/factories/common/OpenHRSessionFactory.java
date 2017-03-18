@@ -4,6 +4,8 @@
  */
 package com.openhr.factories.common;
 
+import java.io.File;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -34,7 +36,7 @@ public class OpenHRSessionFactory {
 
     private OpenHRSessionFactory() {
         Configuration config = new Configuration();
-        config.configure();
+        config.configure(new File("hibernate.cfg.xml"));
         config.addAnnotatedClass(Benefit.class);
         config.addAnnotatedClass(BenefitType.class);
         config.addAnnotatedClass(Employee.class);

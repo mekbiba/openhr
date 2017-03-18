@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
 import com.openhr.data.Employee;
 
@@ -19,6 +20,7 @@ import com.openhr.data.Employee;
  *
  * @author Mekbib
  */
+@Component
 public class EmployeeFactory implements Serializable {
 
     /**
@@ -30,10 +32,7 @@ public class EmployeeFactory implements Serializable {
     private static Query query;
     private static List<Employee> employees;
 
-    public EmployeeFactory() {
-    }
-
-    public static Integer findLastId() throws Exception {
+    public  Integer findLastId() throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findLastId");
@@ -46,7 +45,7 @@ public class EmployeeFactory implements Serializable {
         }
     }
 
-    public static List<Employee> findAll() throws Exception {
+    public  List<Employee> findAll() throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findAll");
@@ -56,7 +55,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static List<Employee> findById(Integer employeeId) throws Exception {
+    public  List<Employee> findById(Integer employeeId) throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findById");
@@ -67,7 +66,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static List<Employee> findByEmployeeId(String employeeId) throws Exception {
+    public  List<Employee> findByEmployeeId(String employeeId) throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findByEmployeeId");
@@ -78,7 +77,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static List<Employee> findByName(String EmployeeName) throws Exception {
+    public  List<Employee> findByName(String EmployeeName) throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findByName");
@@ -89,7 +88,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static List<Employee> findBySalary(Double salary) throws Exception {
+    public  List<Employee> findBySalary(Double salary) throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findBySalary");
@@ -100,7 +99,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static List<Employee> findByRaise(Double raise) throws Exception {
+    public  List<Employee> findByRaise(Double raise) throws Exception {
         session = getInstance().getCurrentSession();
         session.beginTransaction();
         query = session.getNamedQuery("Employee.findByRaisePerYear");
@@ -111,7 +110,7 @@ public class EmployeeFactory implements Serializable {
         return employees;
     }
 
-    public static boolean delete(Employee e) throws Exception {
+    public  boolean delete(Employee e) throws Exception {
         boolean done = false;
         session = getInstance().getCurrentSession();
         session.beginTransaction();
@@ -125,7 +124,7 @@ public class EmployeeFactory implements Serializable {
         return done;
     }
 
-    public static boolean insert(Employee e) throws Exception {
+    public  boolean insert(Employee e) throws Exception {
         boolean done = false;
 
         session = getInstance().getCurrentSession();
@@ -138,8 +137,8 @@ public class EmployeeFactory implements Serializable {
         return done;
     }
 
-    public static boolean update(Employee e) throws Exception {
-        boolean done = false;
+    public  boolean update(Employee e) throws Exception {
+        
         session = getInstance().getCurrentSession();
         session.beginTransaction();
 
@@ -158,8 +157,7 @@ public class EmployeeFactory implements Serializable {
         emp.setPhoto(e.getPhoto());
         emp.setStatus(e.getStatus());
         session.getTransaction().commit();
-        done = true;
 
-        return done;
+        return true;
     }
 }

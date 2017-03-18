@@ -4,14 +4,16 @@ import static com.openhr.Payroll.generatePayroll;
 import static com.openhr.factories.BenefitViewFactory.findAllBenefitTypes;
 import static jxl.Workbook.createWorkbook;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
+import com.openhr.data.EmployeePayroll;
 
 import jxl.format.Border;
 import jxl.format.BorderLineStyle;
@@ -27,31 +29,19 @@ import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
 
-import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
+public class Report {
 
-import com.openhr.data.EmployeePayroll;
-
-public class Report extends Action {
-
-    @Override
-    public ActionForward execute(ActionMapping map, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+   
+    public void run(HttpServletResponse response) {
         WritableWorkbook payrollWorkBook = null;
         try {
-
+        	
             int offSet = 2;
-
             String reportName = "COMPANYNAME_Payroll_Sheet_" + new SimpleDateFormat("MMM_yyyy").format(new Date());
-            response.setHeader("Content-Disposition", "attachment; filename=" + reportName);
-            response.setContentType("application/vnd.ms-excel");
-
+            response.setHeader("Content-Disposition", "attachment; filename=PayRoll.xls");
             payrollWorkBook = createWorkbook(response.getOutputStream());
-
             WritableSheet s = payrollWorkBook.createSheet("Payroll", 0);
             WritableSheet s2 = payrollWorkBook.createSheet("Statements", 1);
 
@@ -294,14 +284,19 @@ public class Report extends Action {
             payrollWorkBook.write();
 
         } catch (Exception e) {
-            throw new ServletException("Exception in Payroll Excel Servlet", e);
+           e.printStackTrace();
         } finally {
-            payrollWorkBook.close();
+            try {
+				response.flushBuffer();
+            	payrollWorkBook.close();
+				
+			} catch (WriteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
-
-        return map.findForward("report.form");
-    }
-
-    public Report() {
     }
 }
