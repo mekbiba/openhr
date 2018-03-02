@@ -11,5 +11,6 @@ target/*
 .setting
 .classpath
 .gradle
-.idea/*
+.idea/
 /build/
+out/
