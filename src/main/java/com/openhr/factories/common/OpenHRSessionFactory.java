@@ -36,23 +36,7 @@ public class OpenHRSessionFactory {
 
     private OpenHRSessionFactory() {
         Configuration config = new Configuration();
-        config.configure(new File("hibernate.cfg.xml"));
-        config.addAnnotatedClass(Benefit.class);
-        config.addAnnotatedClass(BenefitType.class);
-        config.addAnnotatedClass(Employee.class);
-        config.addAnnotatedClass(EmployeePayroll.class);
-        config.addAnnotatedClass(EmpBenefitView.class);
-        config.addAnnotatedClass(Leave.class);
-        config.addAnnotatedClass(LeaveType.class);
-        config.addAnnotatedClass(LeaveRequest.class);
-        config.addAnnotatedClass(LeaveApproval.class);
-        config.addAnnotatedClass(Position.class);
-        config.addAnnotatedClass(PayGroup.class);
-        config.addAnnotatedClass(EmployeePayGroup.class);
-        config.addAnnotatedClass(DeductionType.class);
-        config.addAnnotatedClass(Report.class);
-        config.addAnnotatedClass(Roles.class);
-        config.addAnnotatedClass(Users.class);
+		config.configure(new File("hibernate.cfg.xml"));
         sessionFactory = config.buildSessionFactory();
     }
 

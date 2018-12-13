@@ -2,8 +2,8 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.1.RELEASE'
 	}
-	repositories { 
-		jcenter() 
+	repositories {
+		jcenter()
 		maven {
 	      url "https://plugins.gradle.org/m2/"
 	    }
@@ -13,7 +13,7 @@ buildscript {
 	}
 }
 apply plugin: 'java'
-apply plugin: "org.springframework.boot"	
+apply plugin: "org.springframework.boot"
 apply plugin: 'eclipse'
 
 group = 'OpenHR'
@@ -47,7 +47,9 @@ eclipse {
 		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	}
 }
-
+task wrapper(type:Wrapper){
+    gradleVersion = 2.10
+}
 bootRun {
     addResources = true
 }

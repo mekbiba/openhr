@@ -7,6 +7,23 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/freehrms</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
-        <property name="current_session_context_class">thread</property> 	
-    </session-factory>	
+        <property name="current_session_context_class">thread</property>
+        <mapping class="com.openhr.data.Benefit"/>
+        <mapping class="com.openhr.data.BenefitType"/>
+        <mapping class="com.openhr.data.Deduction"/>
+        <mapping class="com.openhr.data.DeductionType"/>
+        <mapping class="com.openhr.data.Employee"/>
+        <mapping class="com.openhr.data.EmployeePayGroup"/>
+        <mapping class="com.openhr.data.LeaveApproval"/>
+        <mapping class="com.openhr.data.LeaveRequest"/>
+        <mapping class="com.openhr.data.LeaveType"/>
+        <mapping class="com.openhr.data.PayGroup"/>
+        <mapping class="com.openhr.data.Payroll"/>
+        <mapping class="com.openhr.data.Position"/>
+        <mapping class="com.openhr.data.Report"/>
+        <mapping class="com.openhr.data.Roles"/>
+        <mapping class="com.openhr.data.Users"/>
+        <mapping class="com.openhr.data.EmpBenefitView"/>
+        <mapping class="com.openhr.data.EmployeePayroll"/>
+    </session-factory>
 </hibernate-configuration>
