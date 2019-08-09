@@ -1,2 +1,2 @@
 #OpenHR
-This is an open source human resources management software.
+The goal of this small project is to automate the Human Resource and Payroll system for small-scale enterprises.
